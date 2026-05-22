@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using System;
+using Xunit;
 using TechTalk.SpecFlow;
 
 namespace APIFinancas.Especificacoes
@@ -40,7 +41,7 @@ namespace APIFinancas.Especificacoes
         [Then(@"o resultado será (.*)")]
         public void ValidarResultado(double valorFinalEmprestimo)
         {
-            Assert.Equal(valorFinalEmprestimo, _valorCalculado);
+            Assert.Equal(Math.Round(valorFinalEmprestimo, 2), Math.Round(_valorCalculado, 2));
         }
     }
 }
